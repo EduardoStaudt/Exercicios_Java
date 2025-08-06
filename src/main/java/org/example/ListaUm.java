@@ -1,7 +1,8 @@
 package org.example;
 import java.util.Scanner;
+import java.util.Arrays;
 
-public class ListaUm {
+public class ListaUm {// Praticando o basico do Java
 
     public static void exercicioUm() {
         // Peça ao usuário para digitar sua idade. Diga se ele é maior ou menor de idade.
@@ -29,8 +30,10 @@ public class ListaUm {
 
         if (num1 > num2){
             System.out.printf("%d eh maior que %d.", num1, num2);
-        }else{
+        }else if (num2 > num1){
             System.out.printf("%d eh maior que %d.", num2, num1);
+        }else{
+            System.out.println("Os numeros são iguais.");
         }
 
         scanner.close();
@@ -150,7 +153,7 @@ public class ListaUm {
         do {
             System.out.println("Digite um nome");
             name = scanner.nextLine();
-        }while (!name.equalsIgnoreCase(name));
+        }while (!name.equalsIgnoreCase("sair"));
     }
 
     public static void exercicioOnze() {
@@ -247,8 +250,94 @@ public class ListaUm {
 
     }
 
+    public static void exercicioDezeseis(Scanner scanner) {
+       //Peça 5 notas (float ou double), armazene em um array e imprima em ordem crescente.
+       int[] notes = new int[5];
+       for (int i = 0; i< 5; i++){
+            System.out.println("Digite sua nota");
+            notes[i] = scanner.nextInt();
+       }
+       Arrays.sort(notes);
+
+        for (int i = 0; i< 5; i++){
+            System.out.println(notes[i]);
+        }
+    }
+
+    public static void exercicioDezesete(Scanner scanner) {
+        //Peça 3 nomes e mostre-os em ordem alfabética.
+        String[] names = new String[3];
+
+        for (int i = 0; i < 3; i++){
+            System.out.println("Digite seu nome");
+            names[i] = scanner.nextLine();
+        }
+        Arrays.sort(names);
+
+        System.out.println(Arrays.toString(names));
+
+    }
+
+    public static void exercicioDezoito() {
+        //Crie um array com algumas palavras fixas. Imprima quantas palavras ele tem com .length.
+        String[] words ={"Eduardo ","Andrei ","Staudt"};
+
+        System.out.println(words.length);
+    }
+
+    public static void exercicioDezenove(Scanner scanner) {
+        // Peça ao usuário 5 números, armazene em um array e use .length
+        // para fazer um for que imprima o dobro de cada número.
+        int[] numbers = new int[5];
+
+        for (int i = 0; i < 5; i++){
+            System.out.println("Digite um numero: ");
+            numbers[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < numbers.length; i++){
+            System.out.printf("%d X 2 = %d\n", numbers[i], numbers[i] * 2);
+        }
+    }
+
+    public static void exercicioVinte() {
+        // Crie dois arrays com os mesmos valores [1, 2, 3].
+        // Compare com Arrays.equals() e imprima o resultado.
+        int[] nums1 = {1, 2, 3};
+        int[] nums2 = {1, 2, 3};
+
+        if (Arrays.equals(nums1, nums2)){
+            System.out.println("Sao iguais!");
+        }else{
+            System.out.println("Sao Diferentes!");
+        }
+    }
+
+    public static void exercicioVinteUm(Scanner scanner) {
+        // Peça ao usuário para digitar 3 números duas vezes. Armazene
+        // em dois arrays e diga se são iguais ou diferentes.
+        int[]nums1 = new int[3];
+        int[]nums2 = new int[3];
+
+        for (int i = 0; i < 3; i++){
+            System.out.println("Digite um numero:");
+            nums1[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < 3; i++){
+            System.out.println("Digite um numero:");
+            nums2[i] = scanner.nextInt();
+        }
+        if (Arrays.equals(nums1, nums2)){
+            System.out.println("Sao iguais!");
+        }else{
+            System.out.println("Sao Diferentes!");
+        }
+    }
+
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         exercicioQuinze();
+        scanner.close();
         return;
     }
 }
